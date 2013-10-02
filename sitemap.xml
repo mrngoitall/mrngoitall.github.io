@@ -1,19 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://mrngoitall.github.io/blog/2013/10/01/hello-world-slash/</loc>
-        <lastmod>2013-10-01T18:21:53-07:00</lastmod>
+        <loc>http://mrngoitall.github.io/blog/2013/08/11/hello-world-slash/</loc>
+        <lastmod>2013-10-01T22:19:52-07:00</lastmod>
     </url>
     <url>
         <loc>http://mrngoitall.github.io/blog/archives/</loc>
-        <lastmod>2013-10-01T18:21:53-07:00</lastmod>
+        <lastmod>2013-10-01T22:19:52-07:00</lastmod>
     </url>
     <url>
         <loc>http://mrngoitall.github.io/</loc>
-        <lastmod>2013-10-01T18:21:53-07:00</lastmod>
-    </url>
-    <url>
-        <loc>http://mrngoitall.github.io/robots.txt</loc>
-        <lastmod>2013-10-01T12:06:15-07:00</lastmod>
+        <lastmod>2013-10-01T22:19:52-07:00</lastmod>
     </url>
 </urlset>

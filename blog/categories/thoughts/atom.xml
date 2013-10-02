@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Oh, The Things I Will Ngo]]></title>
-  <link href="http://mrngoitall.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: thoughts | Oh, The Things I Will Ngo]]></title>
+  <link href="http://mrngoitall.github.io/blog/categories/thoughts/atom.xml" rel="self"/>
   <link href="http://mrngoitall.github.io/"/>
   <updated>2013-10-01T22:35:24-07:00</updated>
   <id>http://mrngoitall.github.io/</id>
@@ -33,7 +33,7 @@ Hack Reactor&rsquo;s philosophy seemed to make a lot of sense to me. Take Gmail,
 <p>People often ask me why I chose Hack Reactor as opposed to the other development bootcamps. Here&rsquo;s a few of the things that factored into my decision:</p>
 
 <ul>
-<li>Of the 3 programming bootcamps, only App Academy and Hack Reactor had openings for sessions this year. The earliest cohort available through Dev Bootcamp was in February 2014, 8 months away from when I started this whole process. Given my excitement for this kind of a program after several years of thinking to myself  &#8221;Man, I really wish I had more experience with <em>x</em>. That sounds really cool!&ldquo; (where <em>x</em> is the name of just about every tool in web development, like git, Node.js, Backbone.js, JavaScript in general, MongoDB, Ruby on Rails, etc.), I couldn&rsquo;t stand the idea of waiting 8 months just for the <em>chance</em> of getting into a program like Dev Bootcamp.</li>
+<li>Of the 3 programming bootcamps, only App Academy and Hack Reactor had openings for sessions this year. The earliest cohort available through Dev Bootcamp was in February 2014, 8 months away from when I started this whole process. Given my excitement for this kind of a program after several years of thinking to myself  "Man, I really wish I had more experience with <em>x</em>. That sounds really cool!&ldquo; (where <em>x</em> is the name of just about every tool in web development, like git, Node.js, Backbone.js, JavaScript in general, MongoDB, Ruby on Rails, etc.), I couldn&rsquo;t stand the idea of waiting 8 months just for the <em>chance</em> of getting into a program like Dev Bootcamp.</li>
 <li>Hack Reactor is expensive. I&rsquo;m not going to lie. $17,780 is not something to scoff at. That&rsquo;s not including the cost of food (besides the continental breakfast they provide), living/commuting in SF, and all other normal living expenses, <em>during a period when I wouldn&rsquo;t have any income</em>. In order to attend any of these bootcamps, I had to quit the job I had been working for nearly 3.5 years. With Hack Reactor&rsquo;s schedule of 9am-8pm, Mondays-Saturdays for 12 weeks, there&rsquo;s no way I&rsquo;d find time to work a part-time job. In fact, Hack Reactor specifically tells students they shouldn&rsquo;t have any other commitments during those 12 weeks due to the intensity of the program. I thought Dev Bootcamp&rsquo;s $12,200 was high enough, but Hack Reactor is another story altogether. Even after taking into account that Hack Reactor provides more hours, it still comes out to being more expensive. I even did the math on it:
 <del>Dev Bootcamp: 8 hours per day * 5 days a week * 9 weeks = 360 hours / $12,200 = $0.0295 per hour</del>
 <del> Hack Reactor: 11 hours per day * 6 days a week * 12 weeks = 792 hours / $17,780 = $0.0445 per hour</del>
