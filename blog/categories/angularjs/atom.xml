@@ -4,7 +4,7 @@
   <title><![CDATA[Category: angularjs | Oh, The Things I Will Ngo]]></title>
   <link href="http://mrngoitall.github.io/blog/categories/angularjs/atom.xml" rel="self"/>
   <link href="http://mrngoitall.github.io/"/>
-  <updated>2013-10-04T09:54:25-07:00</updated>
+  <updated>2013-10-07T22:44:54-07:00</updated>
   <id>http://mrngoitall.github.io/</id>
   <author>
     <name><![CDATA[William Ngo]]></name>
@@ -19,6 +19,9 @@
     <updated>2013-10-02T09:22:00-07:00</updated>
     <id>http://mrngoitall.github.io/blog/2013/10/02/adding-form-fields-dynamically-in-angularjs</id>
     <content type="html"><![CDATA[<p>Once of the first challenges I encountered with building <a href="http://nominatr.com">NOMinatr</a> on AngularJS was figuring out how to dynamically add new form fields. Polls in NOMinatr needed to be able to allow users to add as many different options as they want and not be constrained by some arbitrary number based on the number of fields I created beforehand. So how does one go about setting this up in AngularJS? Turns out, it&rsquo;s a lot simplier than you&rsquo;d think.</p>
+
+<!-- more -->
+
 
 <p><img src="/images/posts/2013-10-03-nominatr-choices.jpg" /></p>
 

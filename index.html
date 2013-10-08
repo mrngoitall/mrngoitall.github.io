@@ -168,49 +168,12 @@ posted in
 
   <div class="entry-content"><p>Once of the first challenges I encountered with building <a href="http://nominatr.com">NOMinatr</a> on AngularJS was figuring out how to dynamically add new form fields. Polls in NOMinatr needed to be able to allow users to add as many different options as they want and not be constrained by some arbitrary number based on the number of fields I created beforehand. So how does one go about setting this up in AngularJS? Turns out, it&rsquo;s a lot simplier than you&rsquo;d think.</p>
 
-<p><img src="/images/posts/2013-10-03-nominatr-choices.jpg" /></p>
-
-<p>This is the div that repeats for each text field associated with a choice on the Create a Poll page (excluding styling syntax).</p>
-
-<pre><code>&lt;div class="form-group" data-ng-repeat="choice in choices"&gt;
-  &lt;label for="choice" ng-show="showChoiceLabel(choice)"&gt;Choices&lt;/label&gt;
-  &lt;button ng-show="showAddChoice(choice)" ng-click="addNewChoice()"&gt;Add another choice&lt;/button&gt;
-  &lt;input type="text" ng-model="choice.name" name="" placeholder="Enter a restaurant name"&gt;
-&lt;/div&gt;
-</code></pre>
-
-<p>The magic really happens with this ng-repeat attribute on the first line:</p>
-
-<pre><code>data-ng-repeat="choice in choices"
-</code></pre>
-
-<p>ng-repeat tells Angular that this &lt;div&gt; should be repeated for each of the items in the &ldquo;choices&rdquo; object. &ldquo;choices&rdquo; is defined in my controller as simply an array of objects:</p>
-
-<pre><code>$scope.choices = [{id: 'choice1'}, {id: 'choice2'}, {id: 'choice3'}];
-</code></pre>
-
-<p>When you click &ldquo;Add another choice&rdquo;, it triggers runs the addNewChoice() function, which is defined as:</p>
-
-<pre><code>$scope.addNewChoice = function() {
-  var newItemNo = $scope.choices.length+1;
-  $scope.choices.push({'id':'choice'+newItemNo});
-};
-</code></pre>
-
-<p>This will create a new object with a unique id and append it to the $scope.choices object. Because of the magical 2-way binding in Angular, this is as far as you need to go! Once the new object gets appended to the array, Angular will take care of updating the DOM and appending the new text box.</p>
-
-<p>You might be wondering about that <strong>Add another choice</strong> button. It&rsquo;s in that div that gets repeated, yet it doesn&rsquo;t show up next to each text box. ng-show will only display the button if the function being passed into it returns true. The function in ng-show, showAddChoice(), looks like this:</p>
-
-<pre><code>$scope.showAddChoice = function(choice) {
-  return choice.id === $scope.choices[$scope.choices.length-1].id;
-};
-</code></pre>
-
-<p>Basically, it&rsquo;ll only return true when the id matches the id of the last item in the $scope.choices array.</p>
-
-<p>And there you have it. That&rsquo;s all you need to dynamically add more fields to a form in AngularJS. Got a better implementation of it? Leave a comment below!</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/10/02/adding-form-fields-dynamically-in-angularjs/">Read on &rarr;</a>
+    </footer>
   
 
 
