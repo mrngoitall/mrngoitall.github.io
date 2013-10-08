@@ -3,7 +3,7 @@ layout: post
 title: "Hello world!"
 date: 2013-08-11 22:40
 comments: true
-categories: thoughts
+categories: thoughts, hackreactor
 footer: true
 
 ---
