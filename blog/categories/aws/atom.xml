@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: aws | Oh, The Things I Will Ngo]]></title>
+  <link href="http://mrngoitall.github.io/blog/categories/aws/atom.xml" rel="self"/>
+  <link href="http://mrngoitall.github.io/"/>
+  <updated>2013-10-13T18:12:54-07:00</updated>
+  <id>http://mrngoitall.github.io/</id>
+  <author>
+    <name><![CDATA[William Ngo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Best practices on deploying Node.js to AWS EC2]]></title>
+    <link href="http://mrngoitall.github.io/blog/2013/10/13/best-practices-on-deploying-node-dot-js-to-aws-ec2/"/>
+    <updated>2013-10-13T15:01:00-07:00</updated>
+    <id>http://mrngoitall.github.io/blog/2013/10/13/best-practices-on-deploying-node-dot-js-to-aws-ec2</id>
+    <content type="html"><![CDATA[<p>So you&rsquo;ve reached v1.0 of your Node.js-based project, and you&rsquo;re ready to deploy. Congratulations! One of the many ways you can deploy a Node.js project these days is via Amazon Web Service&rsquo;s Elastic Cloud Compute (EC2). There&rsquo;s others, such as Heroku and Nodejitsu.  Amazon actually even has another service that helps you deploy Node.js applications using their services, called Elastic Beanstalk. In theory, it&rsquo;s great; you simply install their CLI tools, run &lsquo;eb init&rsquo;, and you&rsquo;re on your way to quickly deploying your application based on your latest git commit. In practice, I haven&rsquo;t had much success with it due to node dependencies not installing properly, and I&rsquo;ve had to launch my own VM to set up Mongodb anyway (since Amazon doesn&rsquo;t offer a simple service like Amazon RDS to easily set up a NoSQL database aside from their own DynamoDB), so I&rsquo;ve also set up a VM dedicated to Node.js. In fact, my good friend Matt Goo even wrote a blog post that walks you through the steps I&rsquo;ve used in my deployments <a href="http://mattgoo.com/blog/?p=83">here</a>. Once you&rsquo;ve gotten node set up, there&rsquo;s a few more things to keep in mind in your deployment. <!-- more --></p>
+
+<h2>Git</h2>
+
+<p>Possibly one of the best ways of deploying your application is via Git. Once you have Git installed on your server, simply clone your repository from there, run &lsquo;npm install&rsquo;, and you&rsquo;re ready to go with a fresh copy of your code. This also gives you the flexibility to checkout a tagged version of your repo and launch that version instead. This means you can easily rollback in case there&rsquo;s any critical bug in the deployed code (ideally, you&rsquo;d never get to that point, of course, but it&rsquo;s nice having that option available, just in case).</p>
+
+<h2>Environment Variables</h2>
+
+<p>Hopefully you haven&rsquo;t been committing information about your database connection (such as the username, password, database connection string, etc.) and API keys/secrets in your actual code repositories. If you have, follow the directions in <a href="https://help.github.com/articles/remove-sensitive-data">this Github article on removing sensitive information</a>. Environment variables give you the ability to separate these bits of sensitive information from your code. To get started, create a new file (we&rsquo;ll call it <strong>prod.env</strong>) like so:</p>
+
+<p>``` bash prod.env</p>
+
+<h1>If your db requires authentication, you could include the credentials in this connection string</h1>
+
+<p>export COW_DB_HOST=mongodb://localhost/cow
+export NODE_ENV=production
+export PORT=8080</p>
+
+<h1>These are fake keys/secrets for the sake of showing you the format</h1>
+
+<p>export FB_CLIENT_ID=829459018483923
+export FB_CLIENT_SECRET=8ds93jdf9e9d0esdf9e03kds0sd939d9
+export GOOGLE_CLIENT_KEY=209432958010.apps.googleusercontent.com
+export GOOGLE_CLIENT_SECRET=D9Dke9mSie92kX9KeX0wk
+export GITHUB_CLIENT_ID=09sdf03d0024dsjjkn3d
+export GITHUB_CLIENT_SECRET=0239ds903nd93ix93nwroino3kj435jkn634vg24
+export TWITTER_CONSUMER_KEY=0sd9f3js90334xd093nnsi
+export TWITTER_CONSUMER_SECRET=09usdf903jd9034ERDS93rs93JSW9ds9d0s0dsSJSeSde
+```</p>
+
+<p>Save this somewhere outside of your repository, like your home directory, so you don&rsquo;t ever accidentally commit it to a repo. In your .bash_profile/.profile in your home directory, append</p>
+
+<pre><code>source /path/to/prod.env
+</code></pre>
+
+<p>Type that same command into your terminal to have these environment variables available in your current terminal session. In your server-side js files, simply use process.env.ENVIRONMENT_VARIABLE wherever you want to refer to those values. For instance:</p>
+
+<p>``` javascript Configuring passport-google-oauth with environment variables
+passport.use(new GoogleStrategy({</p>
+
+<pre><code>clientID: process.env.GOOGLE_CLIENT_ID,
+clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+callbackURL: 'http://cow.moo/auth/google/callback'
+</code></pre>
+
+<p>  },
+  function(&hellip;) {</p>
+
+<pre><code>...
+</code></pre>
+
+<p>  }
+));
+```</p>
+
+<h2>Privileged Ports</h2>
+
+<p>Once you actually set up node, and you&rsquo;re ready to launch a production instance of node on port 80, you might notice an issue. You can&rsquo;t simply run &lsquo;node server.js&rsquo; under a normal user. You might be confused because you&rsquo;ve been able to run &lsquo;node server.js&rsquo; on your development machine under port 3000, 8080, 9000, etc. all this time without having to run it with &lsquo;sudo&rsquo;. This is actually because ports 0-1023 on UNIX/Linux are considered <a href="http://www.cyberciti.biz/faq/linux-unix-open-ports/">Privileged Ports</a> and require root/super user privileges.</p>
+
+<p>But wait. You really shouldn&rsquo;t be running node with root/super user privileges. What happens if someone decides to exploit a security vulnerability in your code (or node itself)? They&rsquo;d be able to execute malicious code on your server with root privileges! Obviously not a good idea.</p>
+
+<p>What else can you do? Start using <a href="http://blog.softlayer.com/2011/iptables-tips-and-tricks-port-redirection/">iptables</a>. It allows you to reroute traffic from one port to another. In this case, we want to route traffic headed to our server on port 8080 (defined in our $PORT environment variable) to the standard http port 80.</p>
+
+<pre><code>sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports $PORT
+</code></pre>
+
+<p>If our server also supports SSL, we&rsquo;ll want to reroute our SSL traffic as well:</p>
+
+<pre><code>sudo iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-ports $SSLPORT
+</code></pre>
+
+<p>Once you run these commands, these rules will persist until your server restarts. If you want these rules to persist on start-up, see the <strong>Configuration on startup</strong> section of <a href="https://help.ubuntu.com/community/IptablesHowTo">Ubuntu&rsquo;s iptables article</a>.</p>
+
+<h2>Forever</h2>
+
+<p>If you&rsquo;re remotely logging into your EC2 instance via SSH to launch node manually, you may have noticed that node quits the moment you exit the terminal. It also prevents you from running any other commands in the same terminal session. you could run</p>
+
+<pre><code>nohup node server.js &gt; node-output.log &amp;
+</code></pre>
+
+<p>This works, for the most part, until node itself crashes when your application encounters an exception. At that point, you&rsquo;d have to log back in to restart the node server using the same command.</p>
+
+<p>This is where <a href="http://blog.nodejitsu.com/keep-a-nodejs-server-up-with-forever">Forever</a> comes in. Forever is used at Nodejitsu to keep servers running by turning the node process into a daemon, and it works really well for deployments to EC2 too. Setting it up is as simple as:</p>
+
+<pre><code>[sudo] npm install forever
+forever start server.js
+</code></pre>
+
+<p>If you set up your server with Git, pushing to production can be as simple as committing to your main repository, and then running:</p>
+
+<pre><code>git pull origin master
+forever restart server.js
+</code></pre>
+
+<h2>More?</h2>
+
+<p>This list is meant to be a starting point for people deploying their applications by setting up and configuring their own VMs, rather than using Heroku, Nodejitsu, or Elastic Beanstalk. If you know of some other good practices for deploying Node.js, feel free to share in the comments below!</p>
+]]></content>
+  </entry>
+  
+</feed>
