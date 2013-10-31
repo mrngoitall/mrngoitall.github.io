@@ -31,7 +31,8 @@ var github = {
     for (var j = 0; j < repos.length; j++) {
       for (var k = 0; k < exclude.length; k++) {
         if (exclude[k] === repos[j].name || repos[j].name.indexOf('2013-08') > -1) {
-          repos.splice(j,1);
+          repos.splice(j--,1);
+          break;
         }
       }
     }
