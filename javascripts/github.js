@@ -14,7 +14,8 @@ var github = {
       'hangouts-against-humanity',
       'octopress',
       '2013-Sep-HR-ML-sprint',
-      'PixelPuzzle'];
+      'PixelPuzzle',
+      'drywall'];
     if (!data || !data.data) { return; }
     for (var i = 0; i < data.data.length; i++) {
       if (this.options.skip_forks && data.data[i].fork) { continue; }
