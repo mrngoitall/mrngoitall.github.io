@@ -4,7 +4,7 @@
   <title><![CDATA[Oh, The Things I Will Ngo]]></title>
   <link href="http://mrngoitall.github.io/atom.xml" rel="self"/>
   <link href="http://mrngoitall.github.io/"/>
-  <updated>2014-01-07T07:57:59-08:00</updated>
+  <updated>2014-03-02T01:22:32-08:00</updated>
   <id>http://mrngoitall.github.io/</id>
   <author>
     <name><![CDATA[William Ngo]]></name>
@@ -14,13 +14,45 @@
 
   
   <entry>
+    <title type="html"><![CDATA[More on Hack Reactor]]></title>
+    <link href="http://mrngoitall.github.io/blog/2014/03/02/more-on-hack-reactor/"/>
+    <updated>2014-03-02T00:04:00-08:00</updated>
+    <id>http://mrngoitall.github.io/blog/2014/03/02/more-on-hack-reactor</id>
+    <content type="html"><![CDATA[<p>As Hack Reactor has been gaining in popularity, I&rsquo;ve been getting more and more questions about my experience and perspective on the program. So for anyone else who may be interested, I&rsquo;m publishing a few of the most frequently asked questions (to be updated as I get more questions).</p>
+
+<h3>How does Hack Reactor help you learn programming compared to learning by yourself?</h3>
+
+<!-- more -->
+
+
+<p>Learning all of this by yourself is incredibly challenging.
+1. You need to have a <strong>lot</strong> of self-discipline and be able to keep yourself accountable for meeting your own goals. Most of us aren&rsquo;t wired to have this much self-discipline. Just ask anyone  who works at a gym about how people fare with their New Year&rsquo;s resolutions. It makes a huge difference when you&rsquo;re surrounded by peers who are just as dedicated to learning programming as you (the same way having a gym buddy encourages you to actually hit the gym and do progressively harder workouts).
+2. If you&rsquo;re struggling on something because a particular topic isn&rsquo;t clear, it&rsquo;s both difficult and time-consuming trying to look for the answer. At Hack Reactor, you have instructors who can glance at your code and guide you towards the answer. Unlike online forums, you&rsquo;ll even get to see how they arrive at those answers, so you&rsquo;ll learn a lot of tips/tricks to troubleshooting code.
+3. Hack Reactor has an intense and well-structured curriculum. You won&rsquo;t find this curriculum on your own. There&rsquo;s lots of disparate resources you can gather online (Udacity, Codecademy, Khan Academy, etc.), but they don&rsquo;t necessarily blend well together. For instance, you can take courses on Javascript at one of those sites (and in fact, you&rsquo;ll have to take some of those online courses as part of the precoursework prior to the first day of Hack Reactor once you&rsquo;re accepted), but Hack Reactor isn&rsquo;t just basic Javascript. It encompasses everything you need to know about programming for the web, from JS fundamentals/advanced JS, to git version control, the various databases and ORMs, JS frameworks like AngularJS and Backbone, libraries like jQuery, Underscore and d3.js, and server-side technologies like node.js. You can try to gather videos from those various sites to try to piece together the same kind of curriculum and then watch them back-to-back, but at some point, things may overlap and you&rsquo;ll waste time going through their lessons and having to skip certain portions because it was already covered by another lesson elsewhere, or you&rsquo;ll realize you missed something and you&rsquo;ll have to hunt to fill the gaps (see #2).
+4. Because of its immersive nature, you can learn a lot more very quickly. Unlike learning on your own (especially if you&rsquo;re trying to learn while you&rsquo;re working a full-time job), you can dedicate yourself to picking things up quickly, rather than taking everything one small piece at a time and constantly getting interrupted because you have other responsibilities to take care of. Sure, you could quit your job and try to study on your own, but you&rsquo;d have a really hard time trying to accomplish nearly as much as Hack Reactor students accomplish in that same amount of time in order to be able to prove yourself as a software engineer to potential employers.</p>
+
+<p>TLDR: Hack Reactor spares you of the wasted time and headache associated with trying to do this on your own.</p>
+
+<h3>What tips do you have to offer about the 2nd interview?</h3>
+
+<p>The 2nd interview is primarily for them to gauge culture fit and finding out how you learn. They&rsquo;ll set you up at one of the computer pairing stations and try to teach you something new and ask you to implement a particular function. The idea is to find out how well you&rsquo;re able to explain your thought process as you grasp the new information. So possibly the most important thing to do would be to talk aloud about what&rsquo;s going through your mind so they can help guide you towards the right answer. Not only is this important for how you&rsquo;ll be learning throughout most of Hack Reactor, but it&rsquo;s critical during the technical job interviews, so it&rsquo;s a skill that you have to hone. For instance, if you&rsquo;re confused by why <code>if (x === 3)</code> resolves to true in the given code block, instead of simply saying &ldquo;I don&rsquo;t know,&rdquo; explain what&rsquo;s stumping you, like &ldquo;I thought x would be 1 because it was assigned to 1 on line 10, and it&rsquo;s not being reassigned anywhere else.&rdquo; This goes a long way in both the Hack Reactor interview, and all your future job interviews as a programmer.</p>
+
+<p>The second interview is also your chance to ask them any questions you have about the program. As with any job interview, you should come prepared to ask them anything on your mind (e.g., daily schedule, housing concerns, financing concerns, prereqs, recommended equipment/software, etc.).</p>
+
+<hr />
+
+<p>That&rsquo;s it for now. I&rsquo;ll keep updating this as I get more questions. In the meantime, feel free to email me (will at this domain), or leave a comment below!</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Reflecting on Hack Reactor]]></title>
     <link href="http://mrngoitall.github.io/blog/2014/01/03/reflecting-on-hack-reactor/"/>
     <updated>2014-01-03T00:15:00-08:00</updated>
     <id>http://mrngoitall.github.io/blog/2014/01/03/reflecting-on-hack-reactor</id>
     <content type="html"><![CDATA[<p>2 months after graduating from Hack Reactor, I&rsquo;ve been asked several times about what it was like to attend Hack Reactor. When I was considering going to Hack Reactor in the first place, I found it really helpful to read about other people&rsquo;s experiences, so I&rsquo;m adding my 2 cents for anyone else who might be interested (and also so I don&rsquo;t have to answer the same question multiple times!).</p>
 
-<p>TLDR: Hack Reactor been an awesome experience and I couldn’t recommend it highly enough.</p>
+<p>TLDR: Hack Reactor been an awesome experience and I couldn’t recommend it highly enough.<!-- more --></p>
 
 <p>I graduated from Hack Reactor in early November as one of the 29 students in the 6th cohort, which started in August 2013. As a testament to just how great and effective Hack Reactor is, by the end of the 2nd week after graduation, I already started getting job offers with 6-figure salaries. The statistics on their webpage aren’t kidding around. At the time that I applied, they bragged about the average graduate getting $85k salaries. I was already skeptical of that at the time that I applied (but it was still a lot better than what I earned before). After we’ve graduated, as other students in my cohort got offers, it became apparent that the average salary has been increasing with each cohort and a 6-figure salary was the new norm.</p>
 
